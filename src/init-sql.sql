@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS search_result(
+  id INT NOT NULL AUTO_INCREMENT,
+  text1 TEXT NOT NULL,
+  text2 TEXT NOT NULL,
+  text3 TEXT NOT NULL,
+  text4 TEXT NOT NULL,
+  text5 TEXT NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS word(
+  id INT NOT NULL AUTO_INCREMENT,
+  search_id INT NOT NULL,
+  value VARCHAR(500) NOT NULL,
+  count INT NOT NULL,
+  whereF VARCHAR(10) NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT sr_w_FK FOREIGN KEY (search_id) REFERENCES search_result (id)
+);
